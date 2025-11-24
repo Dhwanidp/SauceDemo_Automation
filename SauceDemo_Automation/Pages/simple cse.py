@@ -8,7 +8,6 @@ from selenium.webdriver.support.ui import Select
 
 from selenium import webdriver
 from selenium.webdriver.edge.service import Service as EdgeService
-# python -m pytest SauceDemo_Automation/Tests/test_login.py --browser_name=edge --html=reports/report.html --self-contained-html -q -vv
 
 driver = webdriver.Edge(service=EdgeService())
 driver.get("https://www.saucedemo.com/")
