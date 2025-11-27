@@ -73,15 +73,6 @@ class TestE2ECheckout:
         checkout_page.fill_postal_code("abc")
         checkout_page.click_continue()
 
-        if "checkout-step-two" in driver.current_url:
-            print("BUG: Checkout continued even with invalid postal code.")
-        else:
-            try:
-                error = checkout_page.get_error()
-                print("Error shown:", error)
-            except:
-                print("Stayed on page but no error shown (unexpected).")
-
         prices = overview_page.get_item_prices()
         calculated_total = round(sum(prices), 2)
         subtotal_shown = round(overview_page.get_subtotal(), 2)
