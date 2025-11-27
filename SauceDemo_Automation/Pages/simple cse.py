@@ -20,7 +20,7 @@ driver.find_element(*usernameid).send_keys("standard_user")
 driver.find_element(*passwordid).send_keys("secret_sauce")
 driver.find_element(*login_button).click()
 
-#product page===================================ok
+#product page===================================
 product_map = {
     "Sauce Labs Backpack": "add-to-cart-sauce-labs-backpack",
     "Sauce Labs Bike Light": "add-to-cart-sauce-labs-bike-light",
@@ -73,7 +73,7 @@ assert prices_HighToLow == sorted(prices_HighToLow, reverse=True), "Sorting of H
 
 driver.find_element(By.XPATH, "//span[@class = 'shopping_cart_badge']").click()
 
-#cart=====================ok
+#cart=====================
 productsInCart = [p.text for p in driver.find_elements(By.XPATH, "//div[@class='inventory_item_name']")]
 
 print("Items in Cart:", productsInCart)
@@ -84,7 +84,7 @@ for item in Items_to_buy:
 driver.find_element(By.ID, "checkout").click()
 
 
-#detailss of user==============
+#details of user==============
 driver.find_element(By.ID, "continue").click()
 error = driver.find_element(By.XPATH, "//h3[@data-test='error']").text
 assert "First Name is required" in error, "Without Name it continued"
@@ -107,7 +107,7 @@ else:
 
 time.sleep(3)
 
-#checkout page================ok
+#checkout page================
 price_of_items = driver.find_elements(By.CLASS_NAME, "inventory_item_price")
 prices = [float(p.text.replace("$", "")) for p in price_of_items]
 
